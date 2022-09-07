@@ -31,16 +31,15 @@ public class SearchController {
                                        @RequestParam String searchType,
                                        @RequestParam String searchTerm){
         ArrayList<Job>jobs;
-
         if(searchTerm.toLowerCase().equals("all") || searchTerm.equals("")){
            jobs = JobData.findAll();
+        } else{
+            jobs = JobData.findByColumnAndValue(searchType,searchTerm);
+
         }
-            model.addAttribute("id", searchType);
-            model.addAttribute("name", searchType);
-            model.addAttribute("employer",searchType);
-            model.addAttribute("location", searchType);
-            model.addAttribute("positionType",searchType);
-            model.addAttribute("coreCompetency",searchType);
+        model.addAttribute("jobs", jobs);
+        model.addAttribute("columns", columnChoices);
+
 
         return "search";
     }
