@@ -12,7 +12,7 @@
 
     <table class="job-listing" th:each="requestJob : ${jobs}">
 
-        <tbody>
+
         <tr>
             <td>ID</td>
             <td th:text="${requestJob.id}"></td>
@@ -37,7 +37,7 @@
             <td>Skill</td>
             <td th:text="${requestJob.coreCompetency}"></td>
         </tr>
-        </tbody>
+
 
     </table>
 
